@@ -1,0 +1,39 @@
+body {
+    background-color: #f8f8f8; /* background colour */
+}
+
+h1 {
+    text-align: center; /* center title */
+    margin-top: 10px; /* small gap between titel */
+}
+
+.entry_form {
+    border: 2px solid #ccc;     /* Light gray border */
+    border-radius: 10px;          /* Slightly rounded corners */
+    padding: 20px;               /* Space inside the form */
+    max-width: 600px;            /* Limit form width */
+    margin: 40px auto;           /* Center the form with top/bottom spacing */
+    background-color: #f9f9f9;   /* light background for nicer look */
+    font-weight: bold; /* bold text */
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15); /* shadow all around */
+}
+
+#submit { /* submit button*/
+    background-color: #4961E1;
+    color: white;
+    font-weight: bold;
+}
+
+/* search/drop down */
+.airport-option {
+  cursor: pointer;          /* makes cursor change */
+  border: 1px solid #ccc;
+  max-height: 40px;
+  padding: 8px;
+}
+
+#back_to_overview { /* back to account overview button */
+    margin-left: 90px;      
+    font-weight: bold;        
+
+}

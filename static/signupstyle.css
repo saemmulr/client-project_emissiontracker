@@ -1,0 +1,489 @@
+/* ================================
+   GLOBAL STYLES - Site-wide defaults
+   Setting the main theme: dark mode vibes
+================================ */
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif; /* clean, modern font */
+    background: #f1f1f1; /* White grey / almost white */
+    color: rgb(0, 0, 0); /* default text colour */
+    overflow-x: hidden; /* prevents sideways scroll */
+}
+
+/* Links across website */
+a {
+    text-decoration: none;
+    color: forestgreen; /* keep green brand */
+    font-weight: 600;
+}
+
+/* Headings look bold + readable on dark bg */
+h1, h2, h3, h4 {
+    margin: 0;
+    font-weight: 800;
+    color: rgb(0, 0, 0); /* ensures headings show on light bg */
+}
+
+/* ================================
+   NAVBAR - top fixed navigation area
+================================ */
+.navbar {
+    width: 100%;
+    background: #161616; /* blends into page background */
+    padding: 20px 0; /* spacing for breathing room */
+    display: flex;
+    justify-content: center; /* centres container */
+}
+
+/* centred, mid-width container */
+.nav-container {
+    width: 100%;
+    max-width: 1350px; /* halfway between full width and tighter layout */
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* logo left, links right */
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: 900;
+    color: white;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 40px; /* spacing between menu items */
+}
+
+.nav-links a {
+    color: #ccc;
+    font-weight: 600;
+    transition: 0.2s ease; /* smooth colour shift on hover */
+}
+
+.nav-links a:hover {
+    color: forestgreen; /* brand colour on hover */
+}
+
+/* Right button - CTA button in navbar */
+.nav-btn {
+    background: forestgreen;
+    padding: 12px 26px;
+    border-radius: 30px;
+    color: white;
+    font-weight: 700;
+    transition: 0.25s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-btn:hover {
+    background: #0f5f0f; /* darker hover */
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 20px; /* stacked spacing */
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 15px; /* bigger tap targets */
+    }
+}
+
+
+
+/* ================================
+   HERO SECTION - first big visual intro
+================================ */
+.hero {
+    text-align: center;
+    padding: 120px 20px 80px;
+    animation: fadeIn 1s ease-out; /* nice entrance */
+}
+
+.rating {
+    font-size: 14px;
+    color: forestgreen;
+    font-weight: 700;
+}
+
+.title {
+    margin-top: 20px;
+    font-size: 56px;
+    line-height: 1.31;
+}
+
+.highlight {
+    background: forestgreen;
+    color: white;
+    padding: 6px 16px;
+    border-radius: 8px; /* pill highlight effect */
+}
+
+/* Subtitle white on dark */
+.subtitles {
+    margin-top: 20px;
+    font-size: 20px;
+    color: #000000;
+}
+
+/* ================================
+   BUTTONS - reusable CTA styles
+================================ */
+.primary-btn {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 16px 32px;
+    background: darkgreen;
+    color: white;
+    font-weight: 800;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+}
+
+.primary-btn:hover {
+    background: rgb(26, 104, 26); /* darker green hover */
+}
+
+/* ===============================
+   GLOBAL BASE - page colours + fonts
+   kept everything light so the page feels clean + calm
+================================*/
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: #ffffff;
+    color: #111;
+    overflow-x: hidden; /* avoids any weird sideways scroll */
+}
+
+/* default links across the site, simple + green brand colour */
+a {
+    text-decoration: none;
+    color: forestgreen;
+    font-weight: 600;
+}
+
+/* main headings needed bold weight so they don't blend into the white */
+h1, h2, h3 {
+    margin: 0;
+    font-weight: 800;
+    color: #000;
+}
+
+/* ============================================================
+   HERO SECTION - large intro banner
+   Tried to make it spaced well so the page opens breathing
+============================================================ */
+.hero {
+    text-align: center;
+    padding: 140px 20px 100px; /* more top space feels premium */
+    animation: fadeIn 1s ease-out;
+}
+
+/* small rating text above title */
+.rating {
+    font-size: 14px;
+    color: forestgreen;
+    font-weight: 700;
+}
+
+/* big bold title for the product name */
+.title {
+    margin-top: 20px;
+    font-size: 54px;
+    line-height: 1.25;
+}
+
+/* green highlight behind main keyword */
+.highlight {
+    background: forestgreen;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 8px;
+}
+
+/* subtitle slightly softer black for easier reading */
+.subtitles {
+    margin-top: 20px;
+    font-size: 19px;
+    color: #333;
+}
+
+/* main call-to-action button */
+.primary-btn {
+    display: inline-block;
+    margin-top: 35px;
+    padding: 16px 36px;
+    background: forestgreen;
+    color: white;
+    border-radius: 10px;
+    font-weight: 800;
+    transition: 0.25s;
+}
+.primary-btn:hover { background:#0f5f0f; }
+
+/* background grid behind hero */
+#bg-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    opacity: 0.12;
+    pointer-events: none; /* prevents blocking buttons */
+    mix-blend-mode: lighten;
+}
+
+/* ensures canvas sits behind hero content */
+.hero {
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* ============================
+   FEATURES SECTION – FUTURISTIC
+   clean tech look + depth
+============================ */
+
+.features {
+    /* darker but smooth background so the section break is obvious */
+    background: linear-gradient(180deg, #d9d9d9 0percent, #cfcfcf 100percent);
+    padding: 90px 20px;
+    text-align: center;
+}
+
+/* subtle subtitle styling */
+.workflow-desc {
+    margin-top: 12px;
+    font-size: 17px;
+    color: #2b2b2b; /* darker so it reads well against the grey */
+    letter-spacing: 0.3px;
+}
+
+/* responsive 3-card grid */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 36px;
+    margin-top: 55px;
+}
+
+/* futuristic glass-card style */
+.feature-card {
+    background: rgba(255,255,255,0.65); /* glass effect instead of flat white */
+    backdrop-filter: blur(10px); /* clean acrylic panel style */
+    border-radius: 18px;
+    padding: 35px;
+    border: 1px solid rgba(255,255,255,0.35); /* faint edge glow */
+    box-shadow: 0px 6px 30px rgba(0,0,0,0.08); /* smooth futuristic drop shadow */
+    transition: all .4s ease;
+}
+
+/* hover interaction – feels alive not gimmicky */
+.feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0px 10px 40px rgba(0,0,0,0.12);
+}
+
+/* icons now feel like status indicators rather than emojis */
+.feature-card .icon {
+    font-size: 45px;
+    margin-bottom: 16px;
+    opacity: 0.9;
+}
+
+
+
+/* ============================
+   SIMPLE FADE ANIMATIONS
+============================ */
+@keyframes fadeIn { from{opacity:0; transform:translateY(20px);} to{opacity:1;} }
+.fade-up { animation: fadeIn 1s ease forwards; }
+
+
+/* ================================
+   FOOTER - bottom info area
+================================ */
+/* -------------------- Footer -------------------- */
+.site-footer {
+  background-color: #000000; /* dark*/
+  color: forestgreen;
+  padding: 4rem 2rem 2rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1100px;
+  margin: 0 auto;
+  gap: 2rem;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 250px;
+}
+
+.footer-column h3 {
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+  color:#ffffff;
+  margin-bottom: 1.2rem;
+  font-weight: 700;
+}
+
+.footer-column p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: forestgreen;
+  max-width: 300px;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 0.6rem;
+}
+
+.footer-column ul li a {
+  text-decoration: none;
+  color:forestgreen;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+  color: #000000;
+}
+
+/* Footer bottom bar */
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  font-size: 0.85rem;
+  color: forestgreen;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-column p {
+    margin: 0 auto;
+  }
+}
+/* -------------------- Footer Logo -------------------- */
+.footer-logo {
+  font-family: 'Inter', sans-serif;
+  font-size: 2rem;
+  color: white;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+
+/* ================================
+   SIGNUP SECTION - form + container
+================================ */
+.signup-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 120px 20px;
+}
+
+.form-card {
+    background: #1a1a1a;
+    padding: 50px 40px;
+    width: 100%;
+    max-width: 600px; /* keeps form centred */
+    border-radius: 16px;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.45);
+    animation: fadeIn 0.8s ease-out;
+    color:white;
+
+}
+
+.form-card h1 {
+    font-size: 32px;
+    font-weight: 800;
+    color: forestgreen;
+}
+
+.subtitle {
+    margin-top: 10px;
+    color: #ffffff;
+}
+
+.signup-form {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.p {
+    color:white
+}
+
+.signup-form label {
+    font-size: 15px;
+    color: #ccc;
+    font-weight: 600;
+}
+
+.signup-form input {
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+    border: none;
+    background: #111;
+    color: white;
+    font-size: 15px;
+    outline: none;
+    transition: 0.25s;
+}
+
+.signup-form input:focus {
+    border: 2px solid forestgreen;
+    background: #131313;
+}
+
+/* MATCH HOME BUTTON */ 
+.primary-btn { margin-top: 20px; 
+    padding: 16px; font-size: 16px; 
+    background:  forestgreen; 
+    border: none; 
+    color: white; 
+    border-radius: 10px; 
+    font-weight: 800;cursor: pointer; } 
+    
+    .primary-btn:hover { 
+    background: rgb(21, 90, 30); }
+
+    .login-text { 
+    margin-top: 25px; 
+    text-align: center; 
+    color: #ffffff; } 
+    
+    .login-text a { 
+    color:  #228b22; 
+    font-weight: 600; }

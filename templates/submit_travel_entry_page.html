@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en"> <!-- Helps with accesebility like screen reading -->
+    <head>
+        <meta charset="UTF-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Makes the website accessible on phones (sizes) -->
+        <script src="{{ url_for('static', filename='submit_travel_entry_page.js') }}"></script> <!-- link to JS file -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script> <!-- link to Bootstrap file --> 
+        <link rel="stylesheet" href="static/submit_travel_entry_page.css"> <!-- link to CSS file -->
+        <!-- title -->
+        <title>Submit a Travel Entry</title> 
+    </head>
+
+    <body>
+
+        <!-- title on page -->         <!-- https://www.w3schools.com/tags/tag_select.asp link used to help make drop down-->
+        <h1>Submit a Travel Entry</h1>
+
+        <!-- Back to overview button -->
+        <a href="{{ url_for('account_overview') }}" class="btn btn-primary" id = "back_to_overview">
+            <i class="fa-solid fa-plus"></i> Back To Account Overview
+        </a>
+
+        <!-- semantic section used for styling -->
+        <section class = "form">
+        <div class = "entry_form">
+        <!-- make an entry form help using https://www.w3schools.com/html/html_forms.asp and bootsrap-->
+        <form id = "entry_form" name = "entry_form"  onsubmit = "return validateForm()" action="/submit_an_entry" method="POST">
+
+
+            <!-- Travel date field -->
+            <div class="mb-3"> <!-- bootstrap forms -->
+
+                <label for="travel-date" class="form-label">Enter travel date</label>
+                <input type="date" name="date" id="travel-date" class="form-control">
+
+                {% if errors.date %}
+                    <div class="text-danger">{{ errors.date }}</div> <!-- backend validation error code (jinja) -->
+                {% endif %}
+
+            </div>
+
+            <!-- Leg 1 field -->
+            <div class="row mb-3"> <!-- bootstrap forms -->
+
+                <div class = "col" >
+                    <label for="leg_1" class="form-label">Enter Leg 1</label>
+                    <input type="text" name="leg_1" id="leg_1" placeholder="LHR" class="form-control" onblur="calculateMiles()">
+                    
+                    <div class = "autocomplete-box" id = "airport_auto"></div> <!-- autocomplete drop down -->
+
+                    {% if errors.leg_1 %}
+                        <div class="text-danger">{{ errors.leg_1 }}</div> <!-- backend validation error code (jinja) -->
+                    {% endif %}
+
+                </div>
+                
+                <!-- Leg 2 field --> 
+                <div class="col"> <!-- bootstrap forms -->
+
+                    <label for="leg_2" class="form-label">Enter Leg 2</label>
+                    <input type="text" name="leg_2" id="leg_2" placeholder="JFK" class="form-control" onblur="calculateMiles()">
+
+                    <div class = "autocomplete-box" id = "airport_auto_2"></div>
+
+                    {% if errors.leg_2 %}
+                        <div class="text-danger">{{ errors.leg_2 }}</div> <!-- backend validation error code (jinja) -->
+                    {% endif %}
+
+                </div>
+                <!-------------------------- YASINS EDIT HERE --------------------------->
+                <!-- EXTRA LEGS BUTTON -->
+                <div class="mb-3">
+                    <button type="button" id="add-leg-btn" class="btn btn-secondary">Add another leg</button>
+                </div>
+
+                <!-- Extra legs fields (hidden initially) -->
+                <div id="extra-legs-container" class="row mb-3">
+                    <div class="col mb-2" style="display:none;">
+                        <label for="leg_3" class="form-label">Leg 3</label>
+                        <input type="text" name="leg_3" id="leg_3" class="form-control" onblur="calculateMiles()">
+                        <div class="autocomplete-box" id="airport_auto_3"></div>
+                    </div>
+                    <div class="col mb-2" style="display:none;">
+                        <label for="leg_4" class="form-label">Leg 4</label>
+                        <input type="text" name="leg_4" id="leg_4" class="form-control" onblur="calculateMiles()">
+                        <div class="autocomplete-box" id="airport_auto_4"></div>
+                    </div>
+                    <div class="col mb-2" style="display:none;">
+                        <label for="leg_5" class="form-label">Leg 5</label>
+                        <input type="text" name="leg_5" id="leg_5" class="form-control" onblur="calculateMiles()">
+                        <div class="autocomplete-box" id="airport_auto_5"></div>
+                    </div>
+                    <div class="col mb-2" style="display:none;">
+                        <label for="leg_6" class="form-label">Leg 6</label>
+                        <input type="text" name="leg_6" id="leg_6" class="form-control" onblur="calculateMiles()">
+                        <div class="autocomplete-box" id="airport_auto_6"></div>
+                    </div>
+                </div>
+
+                <!----------------------- YASINS EDIT ENDS HERE ------------------->
+            </div>    
+
+            <!-- single or return field with drop down -->
+            <div class="row mb-3"> <!-- bootstrap forms -->
+                <div class="col">
+
+                <label for="single_return" class="form-label">Single or Return?</label>
+
+                    <select name="single_return" id="single_return" class="form-control">
+                    <!--<option selected>Select single or return</option> -->
+                    <option value="single">Single</option>
+                    <option value="return">Return</option>
+                    </select>
+
+                    {% if errors.single_return %}
+                        <div class="text-danger">{{ errors.single_return }}</div> <!-- backend validation error code (jinja) -->
+                    {% endif %}
+
+                </div>
+                
+                <!-- Class fields with drop down -->
+                <div class="col"> <!-- bootstrap forms -->
+                    <label for="class" class="form-label">Class</label>
+                    
+                    <select name="class" id="class" class="form-control">
+                    <!--<option selected>Select Class</option>-->
+                    <option value="economy">Economy</option>
+                    <option value="business">Business</option>
+                    <option value="first">First</option>
+                    <option value="n/a">N/A</option>
+                    </select>
+
+                    {% if errors.class %}
+                        <div class="text-danger">{{ errors.class }}</div> <!-- backend validation error code (jinja) -->
+                    {% endif %}
+
+                </div>
+            </div>    
+
+
+            <!-- mode of transport field with drop down -->
+            <div class="mb-3"> <!-- bootstrap forms -->
+                <label for="mode_of_transport" class="form-label">Mode of Transport</label>
+
+                <select name="mode_of_transport" id="mode_of_transport" class="form-control">
+                <!--<option selected>Select mode of transport</option> -->
+                <option value="plane">Plane</option>
+                <option value="car">Car</option>
+                <option value="bus">Bus</option>
+                <option value="train">Train</option>
+                <option value="coach">Coach</option>
+                <option value="other">Other</option>
+                </select>
+
+                {% if errors.mode_of_transport %}
+                    <div class="text-danger">{{ errors.mode_of_transport }}</div> <!-- backend validation error code (jinja) -->
+                {% endif %}
+
+            </div>
+            
+            link to miles calculator (manual calculation for the moment)
+            <p>For total miles, please use this link <a href="https://www.airmilescalculator.com/">Click here</a></p>
+            <p>the miles would be the 'Air Miles', if return, please multiply by 2</p>
+            
+            <!-- Total miles field -->
+            <div class="mb-3"> <!-- bootstrap forms -->
+
+                <label for="total_miles" class="form-label">Total Miles</label>
+
+                <input type="text" name="total_miles" placeholder="e.g. 2130" id="total_miles" class="form-control">
+
+                {% if errors.total_miles %}
+                    <div class="text-danger">{{ errors.total_miles }}</div> <!-- backend validation error code (jinja) -->
+                {% endif %}
+
+            </div>           
+
+            link to CO2 calculator (manual calculation for the moment)
+            <p>For CO2 produced, please use this link <a href="https://sustainabletravel.org/our-work/carbon-offsets/calculate-footprint/">Click here</a></p>
+
+            <!-- CO2 field -->
+            <div class="mb-3"> <!-- bootstrap forms -->
+
+                <label for="co2" class="form-label">CO2 produced (Metric Tons)</label>
+
+                <input type="text" name="co2" placeholder="e.g. 23.5" id="co2" class="form-control">
+
+                {% if errors.co2 %}
+                    <div class="text-danger">{{ errors.co2 }}</div> <!-- backend validation error code (jinja) -->
+                {% endif %}
+
+            </div>   
+
+            <!-- Submit button -->
+            <div class="mb-3">
+                <input type="submit" value="Add entry" id="submit" class="form-control">
+            </div>    
+
+            <!-- empty div to display message -->
+            <div id = "message"> 
+            </div> 
+        
+        </form>
+        </div>
+        
+    </body>

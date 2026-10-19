@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<!-- ===================================================== -->
+<!-- HERO SECTION                                           -->
+<!-- ===================================================== -->
+<section class="hero fade-up">
+<canvas id="bg-grid"></canvas>
+    <div class="rating">
+        ⭐⭐⭐⭐⭐ <span>Amazing Ratings By Our Fellow Developers</span>
+    </div>
+
+    <h1 class="title">
+        The <span class="highlight">Carbon Emission Tool</span><br>
+        Plan Your Business Trips With Ease
+    </h1>
+
+    <p class="subtitles">
+        Your all-in-one tool for planning eco-friendly, cost-effective and efficient travel trips for our employees.
+    </p>
+
+    <a href="{{ url_for('signup') }}" class="primary-btn">⚡Try Now</a>
+
+
+
+</section>
+
+
+
+<!-- ===================================================== -->
+<!-- FEATURES SECTION                                       -->
+<!-- ===================================================== -->
+<section class="features fade-up">
+    <h2>Why This Tool Matters</h2>
+    <p class="workflow-desc">Efficient. Sustainable. Smarter Travel Planning.</p>
+
+    <div class="features-grid">
+
+        <div class="feature-card slide-up">
+            <div class="icon">🌿</div>
+            <h3>Reduced Carbon Waste</h3>
+            <p>Built to help organisations decrease unnecessary CO₂ output through automated route optimisation.</p>
+        </div>
+
+        <div class="feature-card slide-up">
+            <div class="icon">💹</div>
+            <h3>Cost Efficient</h3>
+            <p>Save travel expenditure by comparing the most affordable travel routes & hotel integration.</p>
+        </div>
+
+        <div class="feature-card slide-up">
+            <div class="icon">🛰️</div>
+            <h3>Real-Time Data</h3>
+            <p>Live transport feed integration enabling users to make quicker and smarter decisions.</p>
+        </div>
+
+    </div>
+</section>
+
+
+{% endblock %}
+

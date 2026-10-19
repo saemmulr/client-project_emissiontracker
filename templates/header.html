@@ -1,0 +1,24 @@
+</header>
+<!-- header.html -->
+<!-- NAVIGATION BAR                                        -->
+<!-- ===================================================== -->
+<nav class="navbar">
+    <div class="nav-container">
+
+        <!-- Logo -->
+        <a href="{{ url_for('home') }}" class="logo">BIPSYNC</a>
+
+        <!-- Navigation Links -->
+        <ul class="nav-links">
+            <li><a href="#">Features</a></li>
+            <li><a href="{{ url_for('account_overview') }}">Dashboard</a></li>
+            <li><a href="{{ url_for('login') }}">Account</a></li>
+        </ul>
+
+
+        <!-- Right Button -->
+        <a href="{{ url_for('signup') }}" class="nav-btn">⚡ Try Now</a>
+
+    </div>
+</nav>
+</header>
