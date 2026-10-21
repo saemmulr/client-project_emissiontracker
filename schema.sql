@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS "emission" (
 	"class"	INTEGER,
 	"total_miles"	REAL NOT NULL,
 	"co2"	REAL NOT NULL,
-	"mode_of_transport"	TEXT,
+	"mode_of_transport"	TEXT, extra_legs TEXT,
 	PRIMARY KEY("entry_id" AUTOINCREMENT),
 	FOREIGN KEY("user_id") REFERENCES "user"("user_id")
 );
